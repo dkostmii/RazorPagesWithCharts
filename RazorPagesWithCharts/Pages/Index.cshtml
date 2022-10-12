@@ -1,0 +1,52 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center mb-3">
+    <h1 class="display-4">Hello!</h1>
+    <p class="mb-4">This is the example project of how to use <a href="https://www.chartjs.org/">Chart.js</a>.</p>
+    <h3 class="display-6 fade mb-2" id="subtitle">Things to consider</h3>
+</div>
+
+<div class="d-flex flex-row justify-content-center mb-5">
+    <ol class="list-group list-group-numbered">
+        <li class="list-group-item fade"><code>_Layout.cshtml</code> file</li>
+        <li class="list-group-item fade"><code>wwwroot/js/site.js</code> contents</li>
+        <li class="list-group-item fade"><code>ChartData</code> class</li>
+        <li class="list-group-item fade"><code>InlineChart.cshtml</code> Razor page</li>
+        <li class="list-group-item list-group-item-success fade">😎 Hack this project! 😎</li>
+    </ol>
+</div>
+
+<h3 class="display-6 fade text-center" id="happy-hacking">👩‍💻 Happy hacking! 👨‍💻</h3>
+
+<script>
+    async function fadeInItem(item) {
+        if (!(item instanceof HTMLElement)) {
+            throw new TypeError('Exected item to be HTMIElement');
+        }
+
+        return new Promise(resolve => {
+            setTimeout(() => {
+                item.classList.add("show");
+                resolve();
+            }, 125);
+        });
+    }
+
+    async function fadeIn() {
+        const listItems = [
+            document.getElementById("subtitle"),
+            ...Array.from(document.getElementsByClassName("list-group-item")),
+            document.getElementById("happy-hacking"),
+        ];
+
+        while (listItems.length > 0) {
+            await fadeInItem(listItems.shift());
+        }
+    }
+
+    fadeIn();
+</script>

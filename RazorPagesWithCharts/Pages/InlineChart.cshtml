@@ -1,0 +1,19 @@
+﻿@page
+@model RazorPagesWithCharts.Pages.InlineChartModel
+@{
+}
+
+
+<div class="d-flex flex-column align-items-center">
+    <h1 class="mb-5">Inline chart</h1>
+    <canvas id="chart" width="500" height="300"></canvas>
+</div>
+
+<script>
+    try {
+        showChartData();
+    } catch (err) {
+        alert('Error occurred: ' + err.toString());
+        console.error('Error occurred: ' + err.toString());
+    }
+</script>
